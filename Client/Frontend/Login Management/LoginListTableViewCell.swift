@@ -11,29 +11,31 @@ class LoginListTableViewCell: ThemedTableViewCell {
         imageView.isHidden = true
         return imageView
     }()
-    let breachAlertSize: CGFloat = 24
+    private let breachAlertSize: CGFloat = 24
 
     init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, inset: UIEdgeInsets) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         accessoryType = .disclosureIndicator
-        contentView.addSubview(breachAlertImageView)
-        breachAlertImageView.snp.remakeConstraints { make in
-            make.centerY.equalTo(contentView)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-LoginTableViewCellUX.HorizontalMargin)
-            make.width.equalTo(breachAlertSize)
-            make.height.equalTo(breachAlertSize)
-        }
+        self.imageView?.isHidden = true
 
-        textLabel?.snp.remakeConstraints({ make in
-            make.leading.equalTo(contentView).offset(inset.left)
-            make.trailing.equalTo(breachAlertImageView.snp.leading).offset(-LoginTableViewCellUX.HorizontalMargin/2)
-            make.top.equalTo(inset.top)
-            make.centerY.equalTo(contentView)
-            if let detailTextLabel = self.detailTextLabel {
-                make.bottom.equalTo(detailTextLabel.snp.top)
-                make.top.equalTo(contentView.snp.top).offset(LoginTableViewCellUX.HorizontalMargin)
-            }
-        })
+//        self.contentView.addSubview(breachAlertImageView)
+//        breachAlertImageView.snp.remakeConstraints { make in
+//            make.centerY.equalTo(contentView)
+//            make.trailing.equalTo(contentView.snp.trailing).offset(-LoginTableViewCellUX.HorizontalMargin)
+//            make.width.equalTo(breachAlertSize)
+//            make.height.equalTo(breachAlertSize)
+//        }
+//
+//        textLabel?.snp.remakeConstraints({ make in
+//            make.leading.equalTo(contentView).offset(inset.left)
+//            make.trailing.equalTo(breachAlertImageView.snp.leading).offset(-LoginTableViewCellUX.HorizontalMargin/2)
+//            make.top.equalTo(inset.top)
+//            make.centerY.equalTo(contentView)
+//            if let detailTextLabel = self.detailTextLabel {
+//                make.bottom.equalTo(detailTextLabel.snp.top)
+//                make.top.equalTo(contentView.snp.top).offset(LoginTableViewCellUX.HorizontalMargin)
+//            }
+//        })
 
         // Need to override the default background multi-select color to support theming
         self.multipleSelectionBackgroundView = UIView()
